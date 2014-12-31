@@ -1,0 +1,45 @@
+# ~/.tmuxinator/puppet.yml
+
+name: puppet
+root: ~/Documents/Development/puppet/refactor/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - Editor:
+      layout: 55c3,158x55,0,0[158x37,0,0,0,158x17,0,38{79x17,0,38,2,78x17,80,38,7}]
+      panes:
+        - vim
+        - guard
+        - #empty
+  - Server:
+      layout: even-vertical   
+      panes:
+        - master:
+           - cd $HOME/Documents/Development/Vagrant/puppet-dev
+           - vagrant up  
+           - vagrant ssh master
+        - agent:
+           - sleep 600
+           - vagrant ssh agent
+  - Remote Servers:
+      layout: 91e3,158x55,0,0[158x27,0,0,6,158x27,0,28{79x27,0,28,7,78x27,80,28,8}]
+      panes:
+        - preprod:     
+           - ssh jsmith@chi2pppemastr01.grubhub.local
+        - #empty
+        - #empty 
+

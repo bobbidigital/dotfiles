@@ -145,7 +145,7 @@ python del powerline_setup
 function LintFile()
 	let l:currentfile = expand('%:p')
 	if &ft == 'puppet'
-		let l:command = "puppet-lint " . l:currentfile
+		let l:command = "puppet parser validate " . l:currentfile
 	elseif &ft == 'eruby.html'
 		let l:command = "erb -P -x -T '-' " . l:currentfile . "| ruby -c"
 	elseif &ft == 'json'
@@ -158,3 +158,4 @@ map <c-L> :call LintFile()<cr>
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+nmap <C-t> :NERDTree<cr>
