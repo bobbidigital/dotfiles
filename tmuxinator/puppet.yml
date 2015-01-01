@@ -20,10 +20,10 @@ root: ~/Documents/Development/puppet/refactor/
 
 windows:
   - Editor:
-      layout: 55c3,158x55,0,0[158x37,0,0,0,158x17,0,38{79x17,0,38,2,78x17,80,38,7}]
+      layout: fa1c,158x55,0,0[158x39,0,0{111x39,0,0,1,46x39,112,0[46x19,112,0,22,46x19,112,20,24]},158x15,0,40,9]
       panes:
         - vim
-        - guard
+        - bundle exec guard --clear -i -n f
         - #empty
   - Server:
       layout: even-vertical   
