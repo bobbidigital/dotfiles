@@ -12,5 +12,5 @@ export REFACTOR="$HOME/Documents/Development/puppet/refactor"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # added by Anaconda 2.0.1 installer
-export PATH="/Users/jsmith/anaconda/bin:$PATH"
+export PATH="$HOME/anaconda/bin:$PATH"
 source $HOME/.bashrc

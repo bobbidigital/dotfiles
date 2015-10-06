@@ -149,7 +149,7 @@ function LintFile()
 	elseif &ft == 'eruby.html'
 		let l:command = "erb -P -x -T '-' " . l:currentfile . "| ruby -c"
 	elseif &ft == 'json'
-		let l:command = 'jsonlint -q ' . l:currentfile
+		let l:command = 'jsonlint ' . l:currentfile
 	end
 	silent !clear
 	execute "!" . l:command . " " . bufname("%")
@@ -159,3 +159,5 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 nmap <C-t> :NERDTree<cr>
+
+set wildchar=<Tab> wildmenu wildmode=full

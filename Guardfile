@@ -77,7 +77,13 @@ group :puppet do
                 n "#{m[0]} is invalid", 'Ruby-Syntax-Check', :failed
         end
     end
+ end
 end
 
 
-
+# Add files and commands to this file, like the example:
+#   watch(%r{file/path}) { `command(s)` }
+#
+guard :shell do
+  watch(/(.*).txt/) {|m| `tail #{m[0]}` }
+end

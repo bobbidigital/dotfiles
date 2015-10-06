@@ -1,7 +1,7 @@
 # ~/.tmuxinator/puppet.yml
 
 name: puppet
-root: ~/Documents/Development/puppet/refactor/
+root: ~/Development/puppet
 
 # Optional tmux socket
 # socket_name: foo
@@ -29,7 +29,7 @@ windows:
       layout: even-vertical   
       panes:
         - master:
-           - cd $HOME/Documents/Development/Vagrant/puppet-dev
+           - cd $HOME/Development/builds/puppet-dev
            - vagrant up  
            - vagrant ssh master
         - agent:
