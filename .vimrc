@@ -1,6 +1,7 @@
 :python import sys;sys.path.append("/Users/jsmith/Library/Python/2.7/lib/python/site-packages")
 
 :syntax on
+:set nocompatabile
 :set laststatus=2
 :set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 :filetype indent on
@@ -36,6 +37,11 @@ au BufRead,BufNewFile *.py,*.pyw set expandtab
 au BufRead,BufNewFile *.erb,*.rb,*.rake set tabstop=4
 au BufRead,BufNewFile *.erb,*.rb,*.rake set shiftwidth=2
 au BufRead,BufNewFile *.erb,*.rb,*.rake set expandtab
+
+"HLC
+au BufRead,BufNewFile *.tf,*.tfstate,*.tfvars set tabstop=4
+au BufRead,BufNewFile *.tf,*.tfstate,*.tfvars set shiftwidth=2
+au BufRead,BufNewFile *.tf,*.tfstate,*.tfvars set expandtab
 
 fu Select_c_style()
     if search('^\t', 'n', 150)
@@ -150,6 +156,8 @@ function LintFile()
 		let l:command = "erb -P -x -T '-' " . l:currentfile . "| ruby -c"
 	elseif &ft == 'json'
 		let l:command = 'jsonlint ' . l:currentfile
+	else 
+		let l:command = 'echo "Cannot determine linting type'
 	end
 	silent !clear
 	execute "!" . l:command . " " . bufname("%")
@@ -159,5 +167,10 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 nmap <C-t> :NERDTree<cr>
+nmap <C-n> :CommandT<cr>
 
 set wildchar=<Tab> wildmenu wildmode=full
+
+call plug#begin('~/.vim/plugged')
+Plug 'juliosueiras/vim-terraform-completion'
+call plug#end()
