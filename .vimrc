@@ -1,7 +1,7 @@
 :python import sys;sys.path.append("/Users/jsmith/Library/Python/2.7/lib/python/site-packages")
 
 :syntax on
-:set nocompatabile
+:set nocompatible
 :set laststatus=2
 :set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 :filetype indent on
@@ -140,6 +140,7 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height = 20
 
 nmap <F8> :TagbarToggle<CR>
+nmap j :%!python -m json.tool<CR>
 set number
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
@@ -174,3 +175,9 @@ set wildchar=<Tab> wildmenu wildmode=full
 call plug#begin('~/.vim/plugged')
 Plug 'juliosueiras/vim-terraform-completion'
 call plug#end()
+
+
+noremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
