@@ -140,7 +140,7 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height = 20
 
 nmap <F8> :TagbarToggle<CR>
-nmap j :%!python -m json.tool<CR>
+nmap =j :%!python -m json.tool<CR>
 set number
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
